@@ -23,10 +23,10 @@ async def ping(ctx):
     await ctx.send("pong!") 
 
 @client.command()
-async def kick(ctx, member : discord.Member):
+async def kick(ctx, member : discord.Member, *, reason):
         await member.kick(reason=None)
         
-        kick_embed = discord.Embed(title=f"Kicked {member}", description=f"Yes", color=discord.Color.red())
+        kick_embed = discord.Embed(title=f"Kicked {member}", description=reason, color=discord.Color.red())
 
         await ctx.send(embed=kick_embed)
 
@@ -123,6 +123,18 @@ async def force_shutdown(ctx, reason = "None"):
 
         await client.logout()
 
+@client.command()
+@commands.has_permissions(ban_members=True)
+async def ban(ctx, member: discord.Member, *, reason):
+        await member.send(f"Hey there! You were banned from {ctx.guild.name} for violating the rules!")
+        await member.ban(reason=reason)
+        embed = discord.Embed(
+                title = "User Banned"
+        )
+        embed.add_field(name = "Banned User", value = member.mention, inline = True)
+        embed.add_field(name = "Reason", value = reason, inline = True)
 
+        await ctx.send(embed=embed);
 
+        
 client.run(token.read())
