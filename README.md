@@ -8,7 +8,7 @@ A moderation discord bot written in discord.py
 * A force shutdown command, in case the bot breaks during testing
 * A spam command for fun
 * A ban commmand
-* A unban command (thanks to LouisXV)
+* A unban command (thanks to LouisXIV)
  
  
 # How to run the bot yourself
