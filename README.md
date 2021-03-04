@@ -1,6 +1,8 @@
 # YeffBot
 A moderation/fundiscord bot written in discord.py
 
+## Note: YeffBot is no longer maintained, as I am working on other projects. I will keep checking the repository and accepting pull requests and things of the sort, but I wont actively work on it any more
+
 # Current Features
 * Kicking
 * Create and deleting channels
